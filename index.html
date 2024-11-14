@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Portfolio</title>
-	<link rel="stylesheet" href="style.css">
-	<script type="text/javascript">
-    document.oncontextmenu = function(){return false;}
-</script>
 </head>
 <body>
-	<body bgcolor='black'>
-	<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
-  <audio src="audio.mp3" controls loop
+    <img src="img1.png" id="myImage">
+    <script>
+        const image = document.getElementById('myImage');
+        const imageList = ['img1.png', 'img2.png']; // 이미지 목록
+        let currentImageIndex = 0;
+
+        image.addEventListener('click', () => {
+            currentImageIndex++;
+            if (currentImageIndex >= imageList.length) {
+                currentImageIndex = 0;
+            }
+            image.src = imageList[currentImageIndex];
+        });
+    </script>
 </body>
 </html>
