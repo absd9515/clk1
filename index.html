@@ -3,15 +3,24 @@
 <head>
 </head>
 <body>
-  <img src="img1.png" id="myImage">
+  <img src="img1.png" id="myImage" alt="이미지 설명">
   <script>
     const image = document.getElementById('myImage');
-    const imageList = ['img1.png', 'img2.png'];
+    const imageList = ['img1.png', 'img2.png']; // 이미지 목록 추가
     let currentImageIndex = 0;
 
     image.addEventListener('click', () => {
-      currentImageIndex = (currentImageIndex + 1) % imageList.length;
-      image.src = imageList[currentImageIndex];
+      try {
+        currentImageIndex = (currentImageIndex + 1) % imageList.length;
+        image.src = imageList[currentImageIndex];
+        // 이미지 로딩 실패 시 처리
+        image.onerror = () => {
+          console.error('이미지 로딩 실패');
+          image.src = 'error.png'; // 오류 이미지 표시
+        };
+      } catch (error) {
+        console.error('오류 발생:', error);
+      }
     });
   </script>
 </body>
