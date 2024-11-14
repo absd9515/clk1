@@ -3,19 +3,16 @@
 <head>
 </head>
 <body>
-    <img src="img1.png" id="myImage">
-    <script>
-        const image = document.getElementById('myImage');
-        const imageList = ['img1.png', 'img2.png']; // 이미지 목록
-        let currentImageIndex = 0;
+  <img src="img1.png" id="myImage">
+  <script>
+    const image = document.getElementById('myImage');
+    const imageList = ['img1.png', 'img2.png'];
+    let currentImageIndex = 0;
 
-        image.addEventListener('click', () => {
-            currentImageIndex++;
-            if (currentImageIndex >= imageList.length) {
-                currentImageIndex = 0;
-            }
-            image.src = imageList[currentImageIndex];
-        });
-    </script>
+    image.addEventListener('click', () => {
+      currentImageIndex = (currentImageIndex + 1) % imageList.length;
+      image.src = imageList[currentImageIndex];
+    });
+  </script>
 </body>
 </html>
